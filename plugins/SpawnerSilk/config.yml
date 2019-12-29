@@ -1,0 +1,4 @@
+pluginVersion: '3.0'
+needSilkTouch: true
+spawnersCanBeModifiedByEgg: true
+explosionDropChance: 50.0

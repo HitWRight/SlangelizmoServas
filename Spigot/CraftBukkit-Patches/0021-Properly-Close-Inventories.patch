@@ -1,0 +1,55 @@
+From 3b8afd86c9cae54c1f82c4241880b0d68e5ff0e7 Mon Sep 17 00:00:00 2001
+From: md_5 <md_5@live.com.au>
+Date: Thu, 27 Jun 2013 17:26:09 +1000
+Subject: [PATCH] Properly Close Inventories
+
+Properly close inventories when unloading and switching worlds.
+
+diff --git a/src/main/java/net/minecraft/server/WorldServer.java b/src/main/java/net/minecraft/server/WorldServer.java
+index ed585a06c..795fb9aea 100644
+--- a/src/main/java/net/minecraft/server/WorldServer.java
++++ b/src/main/java/net/minecraft/server/WorldServer.java
+@@ -1011,6 +1011,21 @@ public class WorldServer extends World {
+     }
+ 
+     public void unloadChunk(Chunk chunk) {
++        // Spigot Start
++        for (TileEntity tileentity : chunk.getTileEntities().values())
++        {
++            if ( tileentity instanceof IInventory )
++            {
++                for ( org.bukkit.entity.HumanEntity h : Lists.<org.bukkit.entity.HumanEntity>newArrayList((List<org.bukkit.entity.HumanEntity>) ( (IInventory) tileentity ).getViewers() ) )
++                {
++                    if ( h instanceof org.bukkit.craftbukkit.entity.CraftHumanEntity )
++                    {
++                       ( (org.bukkit.craftbukkit.entity.CraftHumanEntity) h).getHandle().closeInventory();
++                    }
++                }
++            }
++        }
++        // Spigot End
+         this.tileEntityListUnload.addAll(chunk.getTileEntities().values());
+         EntitySlice[] aentityslice = chunk.getEntitySlices();
+         int i = aentityslice.length;
+@@ -1021,6 +1036,18 @@ public class WorldServer extends World {
+ 
+             while (iterator.hasNext()) {
+                 Entity entity = (Entity) iterator.next();
++                // Spigot Start
++                if ( entity instanceof IInventory )
++                {
++                    for ( org.bukkit.entity.HumanEntity h : Lists.<org.bukkit.entity.HumanEntity>newArrayList( (List<org.bukkit.entity.HumanEntity>) ( (IInventory) entity ).getViewers() ) )
++                    {
++                        if ( h instanceof org.bukkit.craftbukkit.entity.CraftHumanEntity )
++                        {
++                           ( (org.bukkit.craftbukkit.entity.CraftHumanEntity) h).getHandle().closeInventory();
++                        }
++                    }
++                }
++                // Spigot End
+ 
+                 if (!(entity instanceof EntityPlayer)) {
+                     if (this.tickingEntities) {
+-- 
+2.20.1
+

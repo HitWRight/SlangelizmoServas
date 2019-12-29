@@ -1,0 +1,22 @@
+lastAccountName: LinuxPlayer3
+timestamps:
+  login: 1576409306772
+  kits:
+    tools: 1576407186278
+  logout: 1576409375561
+ipAddress: 127.0.0.1
+lastlocation:
+  world: world
+  x: 26.5
+  y: 64.0
+  z: -84.5
+  yaw: 1.2081876
+  pitch: 0.0
+money: '2400.0'
+logoutlocation:
+  world: world
+  x: 39.76213414786719
+  y: 64.0
+  z: -60.014383148865186
+  yaw: 28.649231
+  pitch: 21.749954

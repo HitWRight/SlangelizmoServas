@@ -1,0 +1,73 @@
+mobs:
+  name-tag:
+    show: false
+    format: '%name% %maxhp%HP'
+plugin:
+  config-version: '2'
+  debug: false
+worlds:
+  world:
+    horizontal-block-scale: 128
+    vertical-block-scale: 8
+    center-point:
+      x: 0
+      z: 0
+    highest-point:
+      y: 60
+    bonus-damage:
+      horizontal-scale: 0.3
+      vertical-scale: 1
+      mobs-affected:
+      - BAT
+      - BLAZE
+      - CAVE_SPIDER
+      - CHICKEN
+      - CREEPER
+      - ENDER_DRAGON
+      - ENDERMAN
+      - GHAST
+      - GIANT
+      - HORSE
+      - MAGMA_CUBE
+      - OCELOT
+      - PIG_ZOMBIE
+      - SILVERFISH
+      - SKELETON
+      - SLIME
+      - SPIDER
+      - SQUID
+      - WITCH
+      - WITHER
+      - WOLF
+      - ZOMBIE
+    bonus-hp:
+      horizontal-scale: 0.1
+      vertical-scale: 2
+      mobs-affected:
+      - BAT
+      - BLAZE
+      - CAVE_SPIDER
+      - CHICKEN
+      - COW
+      - CREEPER
+      - ENDER_DRAGON
+      - ENDERMAN
+      - GHAST
+      - GIANT
+      - HORSE
+      - MAGMA_CUBE
+      - OCELOT
+      - PIG
+      - PIG_ZOMBIE
+      - SHEEP
+      - SILVERFISH
+      - SKELETON
+      - SLIME
+      - SPIDER
+      - SQUID
+      - VILLAGER
+      - WITCH
+      - WITHER
+      - WOLF
+      - ZOMBIE
+generate-default-config: false

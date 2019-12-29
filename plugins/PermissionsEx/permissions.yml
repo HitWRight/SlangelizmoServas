@@ -1,0 +1,47 @@
+groups:
+  default:
+    options:
+      default: true
+    permissions:
+    - modifyworld.*
+    # Economy
+    - essentials.balance
+    - essentials.home
+    - essentials.kit
+    - essentials.kits.tools
+    - essentials.showkit
+    - essentials.sethome.bed
+    - essentials.spawn
+    - worldedit.wand
+    - worldedit.selwand
+    - worldedit.selection.*
+    - worldguard.region.wand
+    - worldguard.region.define
+    - worldguard.region.list.own
+    - worldguard.region.redefine.own.*
+    - worldguard.region.remove.own.*
+    - worldguard.region.select.own.*
+    - worldguard.region.info.own.*
+    - worldguard.region.addmember.own.*
+    - worldguard.region.addowner.own.*
+    - worldguard.region.removemember.own.*
+    - worldguard.region.removeowner.own.*
+    - essentials.signs.use.buy
+    - essentials.signs.use.sell
+    - essentials.signs.use.trade
+    - essentials.signs.create.trade
+    - essentials.signs.break.trade
+    - essentials.signs.use.trade
+    - essentials.signs.use.balance
+    - essentials.protect.damage.contact
+    - essentials.protect.damage.creeper
+    - essentials.protect.damage.drowning
+    - essentials.protect.damage.fall
+    - essentials.protect.damage.fire
+    - essentials.protect.damage.fireball
+    - essentials.protect.damage.lava
+    - essentials.protect.damage.lightning
+    - essentials.protect.damage.projectiles
+    - essentials.protect.damage.suffocation
+    - essentials.protect.damage.tnt
+schema-version: 1

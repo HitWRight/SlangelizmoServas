@@ -1,0 +1,33 @@
+lastAccountName: LinuxPlayer
+timestamps:
+  login: 1577569313124
+  logout: 1577572141687
+  lastteleport: 1577393029563
+  kits:
+    tools: 1576426965415
+ipAddress: 127.0.0.1
+logoutlocation:
+  world: world
+  x: 10.30403022355999
+  y: 94.0
+  z: -84.19682403087405
+  yaw: 229.79852
+  pitch: 46.94994
+lastlocation:
+  world: world
+  x: 329.9553296343951
+  y: 82.10551723051553
+  z: -548.6168978538158
+  yaw: 320.9522
+  pitch: 20.849989
+afk: false
+money: '2000038461'
+godmode: false
+homes:
+  home:
+    world: world
+    x: -210.4974604081049
+    y: 105.0
+    z: -22.19867790902524
+    yaw: -133.65007
+    pitch: 49.65001

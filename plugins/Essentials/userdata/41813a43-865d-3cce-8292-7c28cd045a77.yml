@@ -1,0 +1,20 @@
+geolocation: Republic of Lithuania
+lastAccountName: Y1K_10
+timestamps:
+  login: 1576434328021
+  logout: 1576442124970
+ipAddress: 85.206.114.2
+lastlocation:
+  world: world
+  x: 26.5
+  y: 64.0
+  z: -84.5
+  yaw: 5.285586
+  pitch: 0.0
+logoutlocation:
+  world: world
+  x: -1018.4102636917911
+  y: 64.0
+  z: 99.34478227403196
+  yaw: 79.64992
+  pitch: 12.599978

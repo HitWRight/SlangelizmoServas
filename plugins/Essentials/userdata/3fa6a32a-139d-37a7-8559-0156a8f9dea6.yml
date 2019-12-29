@@ -1,0 +1,22 @@
+lastAccountName: Morgan
+timestamps:
+  login: 1576425595001
+  lastteleport: 1576446118206
+  logout: 1576447413213
+ipAddress: 85.206.185.165
+lastlocation:
+  world: world
+  x: -223.6026423268321
+  y: 12.0
+  z: -25.69999998807907
+  yaw: -163.80457
+  pitch: -77.54991
+geolocation: Republic of Lithuania
+logoutlocation:
+  world: world
+  x: -230.77096009432032
+  y: 115.0
+  z: -19.775316543671195
+  yaw: -59.25592
+  pitch: 35.400127
+money: '2501'
