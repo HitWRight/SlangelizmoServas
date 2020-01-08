@@ -14,8 +14,17 @@ regions:
         min: {x: -1, y: 61, z: -104}
         max: {x: 52, y: 71, z: -63}
         members: {}
-        flags: {creeper-explosion: deny, use: allow, feed-amount: 20, mob-damage: deny,
+        flags: {creeper-explosion: deny, use: allow, mob-damage: deny, feed-amount: 20,
             interact: allow, pvp: deny, mob-spawning: deny}
+        owners:
+            unique-ids: [c5ac72af-5cab-3c0e-b3c7-a2fe6364171a]
+        type: cuboid
+        priority: 0
+    docks:
+        min: {x: -35, y: 54, z: -62}
+        max: {x: 19, y: 84, z: -31}
+        members: {}
+        flags: {}
         owners:
             unique-ids: [c5ac72af-5cab-3c0e-b3c7-a2fe6364171a]
         type: cuboid
