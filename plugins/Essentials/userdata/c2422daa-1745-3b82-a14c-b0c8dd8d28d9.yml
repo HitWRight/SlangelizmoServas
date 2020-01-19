@@ -1,7 +1,7 @@
 lastAccountName: duoncikas
 timestamps:
-  login: 1578492572748
-  logout: 1578497456616
+  login: 1579130663622
+  logout: 1579132289651
   lastteleport: 1578494834558
 ipAddress: 85.206.114.2
 lastlocation:
@@ -14,8 +14,8 @@ lastlocation:
 geolocation: Republic of Lithuania
 logoutlocation:
   world: world
-  x: -1000.8276048011929
+  x: -997.6568867278303
   y: 64.0
-  z: -1.1384304490768373
-  yaw: 324.4391
-  pitch: 5.9999995
+  z: -0.5983477890102329
+  yaw: 56.69164
+  pitch: -14.399938

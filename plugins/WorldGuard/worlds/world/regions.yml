@@ -14,7 +14,7 @@ regions:
         min: {x: -1, y: 61, z: -104}
         max: {x: 52, y: 71, z: -63}
         members: {}
-        flags: {creeper-explosion: deny, use: allow, mob-damage: deny, feed-amount: 20,
+        flags: {creeper-explosion: deny, use: allow, feed-amount: 20, mob-damage: deny,
             interact: allow, pvp: deny, mob-spawning: deny}
         owners:
             unique-ids: [c5ac72af-5cab-3c0e-b3c7-a2fe6364171a]
@@ -35,6 +35,15 @@ regions:
         members: {}
         flags: {creeper-explosion: deny, block-trampling: deny, damage-animals: deny,
             mob-spawning: deny}
+        owners:
+            unique-ids: [c5ac72af-5cab-3c0e-b3c7-a2fe6364171a]
+        type: cuboid
+        priority: 0
+    quest1:
+        min: {x: -36, y: 44, z: -10}
+        max: {x: 47, y: 48, z: -2}
+        members: {}
+        flags: {}
         owners:
             unique-ids: [c5ac72af-5cab-3c0e-b3c7-a2fe6364171a]
         type: cuboid

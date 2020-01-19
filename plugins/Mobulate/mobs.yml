@@ -16,7 +16,7 @@ worlds:
       y: 60
     bonus-damage:
       horizontal-scale: 0.3
-      vertical-scale: 1
+      vertical-scale: 0
       mobs-affected:
       - BAT
       - BLAZE
@@ -42,7 +42,7 @@ worlds:
       - ZOMBIE
     bonus-hp:
       horizontal-scale: 0.1
-      vertical-scale: 2
+      vertical-scale: 1
       mobs-affected:
       - BAT
       - BLAZE

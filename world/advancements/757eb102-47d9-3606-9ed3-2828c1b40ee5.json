@@ -314,6 +314,12 @@
     },
     "done": true
   },
+  "minecraft:recipes/food/cooked_rabbit_from_smoking": {
+    "criteria": {
+      "has_rabbit": "2020-01-14 14:55:17 +0200"
+    },
+    "done": true
+  },
   "minecraft:recipes/combat/iron_leggings": {
     "criteria": {
       "has_iron_ingot": "2019-12-23 14:51:59 +0200"
@@ -551,6 +557,12 @@
   "minecraft:story/lava_bucket": {
     "criteria": {
       "lava_bucket": "2019-12-24 16:21:31 +0200"
+    },
+    "done": true
+  },
+  "minecraft:recipes/food/cooked_rabbit_from_campfire_cooking": {
+    "criteria": {
+      "has_rabbit": "2020-01-14 14:55:17 +0200"
     },
     "done": true
   },
@@ -980,6 +992,12 @@
     },
     "done": true
   },
+  "minecraft:recipes/misc/yellow_dye_from_dandelion": {
+    "criteria": {
+      "has_yellow_flower": "2020-01-10 21:18:50 +0200"
+    },
+    "done": true
+  },
   "minecraft:recipes/building_blocks/green_stained_glass": {
     "criteria": {
       "has_glass": "2019-12-24 19:53:55 +0200"
@@ -1241,19 +1259,24 @@
   "minecraft:adventure/adventuring_time": {
     "criteria": {
       "minecraft:jungle_edge": "2019-12-25 13:18:52 +0200",
+      "minecraft:cold_ocean": "2020-01-14 15:08:58 +0200",
       "minecraft:mountains": "2019-12-23 14:35:54 +0200",
       "minecraft:forest": "2019-12-23 14:46:11 +0200",
       "minecraft:taiga": "2019-12-23 14:35:45 +0200",
+      "minecraft:deep_cold_ocean": "2020-01-14 15:10:10 +0200",
       "minecraft:taiga_hills": "2019-12-23 14:35:58 +0200",
       "minecraft:jungle": "2019-12-25 13:18:57 +0200",
       "minecraft:birch_forest": "2019-12-24 21:41:25 +0200",
       "minecraft:jungle_hills": "2019-12-25 13:32:09 +0200",
+      "minecraft:deep_lukewarm_ocean": "2020-01-14 14:50:35 +0200",
       "minecraft:beach": "2019-12-23 15:48:19 +0200",
       "minecraft:dark_forest": "2019-12-23 15:04:08 +0200",
       "minecraft:river": "2019-12-23 14:34:39 +0200",
+      "minecraft:lukewarm_ocean": "2020-01-14 14:50:22 +0200",
       "minecraft:birch_forest_hills": "2019-12-24 21:43:24 +0200",
       "minecraft:wooded_mountains": "2019-12-23 14:39:13 +0200",
       "minecraft:wooded_hills": "2019-12-23 14:58:57 +0200",
+      "minecraft:stone_shore": "2020-01-14 14:50:32 +0200",
       "minecraft:swamp": "2019-12-23 14:32:16 +0200",
       "minecraft:plains": "2019-12-23 14:34:41 +0200"
     },
@@ -2740,6 +2763,12 @@
     },
     "done": true
   },
+  "minecraft:recipes/food/cooked_rabbit": {
+    "criteria": {
+      "has_rabbit": "2020-01-14 14:55:17 +0200"
+    },
+    "done": true
+  },
   "minecraft:recipes/misc/quartz_from_blasting": {
     "criteria": {
       "has_nether_quartz_ore": "2019-12-25 12:39:37 +0200"
@@ -2974,6 +3003,12 @@
     },
     "done": true
   },
+  "minecraft:recipes/building_blocks/stripped_spruce_wood": {
+    "criteria": {
+      "has_log": "2020-01-10 21:35:24 +0200"
+    },
+    "done": true
+  },
   "minecraft:recipes/misc/quartz": {
     "criteria": {
       "has_nether_quartz_ore": "2019-12-25 12:39:37 +0200"
@@ -3043,6 +3078,12 @@
   "minecraft:recipes/decorations/light_gray_stained_glass_pane": {
     "criteria": {
       "has_glass": "2019-12-24 19:53:55 +0200"
+    },
+    "done": true
+  },
+  "minecraft:recipes/building_blocks/bone_block": {
+    "criteria": {
+      "has_bonemeal": "2020-01-11 19:29:03 +0200"
     },
     "done": true
   },

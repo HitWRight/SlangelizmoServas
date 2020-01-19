@@ -1,10 +1,10 @@
 geolocation: Republic of Lithuania
 lastAccountName: Kuroame666
 timestamps:
-  login: 1576437628953
+  login: 1579359411198
   kits:
-    tools: 1576431234222
-  logout: 1576437884830
+    tools: 1579123794292
+  logout: 1579365173652
 ipAddress: 78.58.190.109
 lastlocation:
   world: world
@@ -13,11 +13,11 @@ lastlocation:
   z: -84.5
   yaw: 2.9277205
   pitch: 0.0
-money: '2400.0'
+money: '4100.0'
 logoutlocation:
   world: world
-  x: -75.25686017191713
-  y: 69.5
-  z: -223.79375453630914
-  yaw: 241.7666
-  pitch: 11.999317
+  x: -71.02374485846289
+  y: 59.0
+  z: -287.694998052768
+  yaw: 273.4934
+  pitch: 14.850262
