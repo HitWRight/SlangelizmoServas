@@ -310,8 +310,15 @@ public class BlockComposter extends Block implements IInventoryHolder {
 
         @Override
         public void update() {
-            BlockComposter.d(this.a, this.b, this.c);
-            this.d = true;
+            // CraftBukkit start - allow putting items back (eg cancelled InventoryMoveItemEvent)
+            if (this.isNotEmpty()) {
+                BlockComposter.d(this.a, this.b, this.c);
+                this.d = true;
+            } else {
+                this.b.setTypeAndData(this.c, this.a, 3);
+                this.d = false;
+            }
+            // CraftBukkit end
         }
     }
 

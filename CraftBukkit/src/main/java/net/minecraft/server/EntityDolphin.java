@@ -322,7 +322,7 @@ public class EntityDolphin extends EntityWaterAnimal {
 
         @Override
         public boolean a() {
-            return this.a.eq() && this.a.getAirTicks() >= 100;
+            return this.a.eq() && this.a.getAirTicks() >= 100 && this.a.world.getWorld().canGenerateStructures(); // MC-151364, SPIGOT-5494: hangs if generate-structures=false
         }
 
         @Override

@@ -24,5 +24,10 @@ public class PlayerConnectionUtils {
             });
             throw CancelledPacketHandleException.INSTANCE;
         }
+        // CraftBukkit start - SPIGOT-5477, MC-142590
+        else if (MinecraftServer.getServer().hasStopped() || (t0 instanceof PlayerConnection && ((PlayerConnection) t0).processedDisconnect)) {
+            throw CancelledPacketHandleException.INSTANCE;
+        }
+        // CraftBukkit end
     }
 }

@@ -263,6 +263,12 @@
     },
     "done": true
   },
+  "minecraft:recipes/redstone/dispenser": {
+    "criteria": {
+      "has_bow": "2020-01-19 22:13:02 +0200"
+    },
+    "done": true
+  },
   "minecraft:recipes/building_blocks/smooth_quartz_slab_from_smooth_quartz_stonecutting": {
     "criteria": {
       "has_smooth_quartz": "2019-12-23 22:42:05 +0200"
@@ -1248,9 +1254,11 @@
   "minecraft:adventure/adventuring_time": {
     "criteria": {
       "minecraft:jungle_edge": "2019-12-24 16:31:17 +0200",
+      "minecraft:cold_ocean": "2020-01-19 22:14:54 +0200",
       "minecraft:forest": "2019-12-15 17:11:57 +0200",
       "minecraft:mountains": "2019-12-15 14:57:26 +0200",
       "minecraft:taiga": "2019-12-15 14:57:19 +0200",
+      "minecraft:deep_cold_ocean": "2020-01-19 22:15:01 +0200",
       "minecraft:taiga_hills": "2019-12-15 18:49:54 +0200",
       "minecraft:jungle": "2019-12-24 16:31:24 +0200",
       "minecraft:birch_forest": "2019-12-24 12:41:06 +0200",

@@ -547,13 +547,13 @@ public abstract class Entity implements INamableTileEntity, ICommandListener {
                 Vehicle vehicle = (Vehicle) this.getBukkitEntity();
                 org.bukkit.block.Block bl = this.world.getWorld().getBlockAt(MathHelper.floor(this.locX), MathHelper.floor(this.locY), MathHelper.floor(this.locZ));
 
-                if (vec3d1.x > vec3d.x) {
+                if (vec3d.x > vec3d1.x) {
                     bl = bl.getRelative(BlockFace.EAST);
-                } else if (vec3d.x < vec3d.x) {
+                } else if (vec3d.x < vec3d1.x) {
                     bl = bl.getRelative(BlockFace.WEST);
-                } else if (vec3d1.z > vec3d.z) {
+                } else if (vec3d.z > vec3d1.z) {
                     bl = bl.getRelative(BlockFace.SOUTH);
-                } else if (vec3d1.z < vec3d.z) {
+                } else if (vec3d.z < vec3d1.z) {
                     bl = bl.getRelative(BlockFace.NORTH);
                 }
 
@@ -2411,9 +2411,23 @@ public abstract class Entity implements INamableTileEntity, ICommandListener {
 
         if (blockposition == null) { // CraftBukkit
             if (dimensionmanager1.getType() == DimensionManager.THE_END && dimensionmanager == DimensionManager.OVERWORLD) { // CraftBukkit
-                blockposition = worldserver1.getHighestBlockYAt(HeightMap.Type.MOTION_BLOCKING_NO_LEAVES, worldserver1.getSpawn());
+                // CraftBukkit start
+                EntityPortalEvent event = CraftEventFactory.callEntityPortalEvent(this, worldserver1, worldserver1.getHighestBlockYAt(HeightMap.Type.MOTION_BLOCKING_NO_LEAVES, worldserver1.getSpawn()), 0);
+                if (event == null) {
+                    return null;
+                }
+                worldserver1 = ((CraftWorld) event.getTo().getWorld()).getHandle();
+                blockposition = new BlockPosition(event.getTo().getX(), event.getTo().getY(), event.getTo().getZ());
+                // CraftBukkit end
             } else if (dimensionmanager.getType() == DimensionManager.THE_END) { // CraftBukkit
-                blockposition = worldserver1.getDimensionSpawn();
+                // CraftBukkit start
+                EntityPortalEvent event = CraftEventFactory.callEntityPortalEvent(this, worldserver1, worldserver1.getDimensionSpawn() != null ? worldserver1.getDimensionSpawn() : worldserver1.getSpawn(), 0);
+                if (event == null) {
+                    return null;
+                }
+                worldserver1 = ((CraftWorld) event.getTo().getWorld()).getHandle();
+                blockposition = new BlockPosition(event.getTo().getX(), event.getTo().getY(), event.getTo().getZ());
+                // CraftBukkit end
             } else {
                 double d0 = this.locX();
                 double d1 = this.locZ();
@@ -2437,7 +2451,16 @@ public abstract class Entity implements INamableTileEntity, ICommandListener {
                 Vec3D vec3d1 = this.getPortalOffset();
 
                 blockposition = new BlockPosition(d0, this.locY(), d1);
-                ShapeDetector.Shape shapedetector_shape = worldserver1.getTravelAgent().a(blockposition, vec3d, this.getPortalDirection(), vec3d1.x, vec3d1.y, this instanceof EntityHuman);
+                // CraftBukkit start
+                EntityPortalEvent event = CraftEventFactory.callEntityPortalEvent(this, worldserver1, blockposition, 128);
+                if (event == null) {
+                    return null;
+                }
+                worldserver1 = ((CraftWorld) event.getTo().getWorld()).getHandle();
+                blockposition = new BlockPosition(event.getTo().getX(), event.getTo().getY(), event.getTo().getZ());
+                int searchRadius = event.getSearchRadius();
+                // CraftBukkit end
+                ShapeDetector.Shape shapedetector_shape = worldserver1.getTravelAgent().findPortal(blockposition, vec3d, this.getPortalDirection(), vec3d1.x, vec3d1.y, this instanceof EntityHuman, searchRadius); // CraftBukkit - search radius
 
                 if (shapedetector_shape == null) {
                     return null;
@@ -2450,21 +2473,6 @@ public abstract class Entity implements INamableTileEntity, ICommandListener {
         } // CraftBukkit
 
             // CraftBukkit start
-            // SPIGOT-5136 - don't fire event for CraftEntity.teleport
-            if (location == null) {
-                Location enter = this.getBukkitEntity().getLocation();
-                Location exit = new Location(worldserver1.getWorld(), blockposition.getX(), blockposition.getY(), blockposition.getZ());
-
-                EntityPortalEvent event = new EntityPortalEvent(this.getBukkitEntity(), enter, exit);
-                event.getEntity().getServer().getPluginManager().callEvent(event);
-                if (event.isCancelled() || event.getTo() == null || event.getTo().getWorld() == null || !this.isAlive()) {
-                    return null;
-                }
-
-                exit = event.getTo();
-                worldserver1 = ((CraftWorld) exit.getWorld()).getHandle();
-                blockposition = new BlockPosition(exit.getX(), exit.getY(), exit.getZ());
-            }
 
             this.dimension = dimensionmanager;
             this.decouple();

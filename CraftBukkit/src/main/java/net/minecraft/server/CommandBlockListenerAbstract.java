@@ -110,7 +110,14 @@ public abstract class CommandBlockListenerAbstract implements ICommandListener {
                 if (minecraftserver != null && minecraftserver.J() && minecraftserver.getEnableCommandBlock() && !UtilColor.b(this.command)) {
                     try {
                         this.lastOutput = null;
-                        this.successCount = minecraftserver.getCommandDispatcher().dispatchServerCommand(this.getWrapper(), this.command); // CraftBukkit
+                        CommandListenerWrapper commandlistenerwrapper = this.getWrapper().a((commandcontext, flag, i) -> {
+                            if (flag) {
+                                ++this.successCount;
+                            }
+
+                        });
+
+                        minecraftserver.getCommandDispatcher().dispatchServerCommand(commandlistenerwrapper, this.command); // CraftBukkit
                     } catch (Throwable throwable) {
                         CrashReport crashreport = CrashReport.a(throwable, "Executing command block");
                         CrashReportSystemDetails crashreportsystemdetails = crashreport.a("Command to be executed");

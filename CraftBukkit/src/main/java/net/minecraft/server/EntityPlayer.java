@@ -744,7 +744,7 @@ public class EntityPlayer extends EntityHuman implements ICrafting {
             // CraftBukkit start
             Location enter = this.getBukkitEntity().getLocation();
             Location exit = (worldserver1 == null) ? null : new Location(worldserver1.getWorld(), d0, d1, d2, f1, f);
-            PlayerPortalEvent event = new PlayerPortalEvent(this.getBukkitEntity(), enter, exit, cause);
+            PlayerPortalEvent event = new PlayerPortalEvent(this.getBukkitEntity(), enter, exit, cause, 128, true, dimensionmanager.getType() == DimensionManager.THE_END ? 0 : 16);
             Bukkit.getServer().getPluginManager().callEvent(event);
             if (event.isCancelled() || event.getTo() == null) {
                 return null;
@@ -754,40 +754,13 @@ public class EntityPlayer extends EntityHuman implements ICrafting {
             if (exit == null) {
                 return null;
             }
-
-            PlayerTeleportEvent tpEvent = new PlayerTeleportEvent(this.getBukkitEntity(), enter, exit, cause);
-            Bukkit.getServer().getPluginManager().callEvent(tpEvent);
-            if (tpEvent.isCancelled() || tpEvent.getTo() == null) {
-                return null;
-            }
-
-            exit = tpEvent.getTo();
-            if (exit == null) {
-                return null;
-            }
             worldserver1 = ((CraftWorld) exit.getWorld()).getHandle();
             d0 = exit.getX();
             d1 = exit.getY();
             d2 = exit.getZ();
-            f1 = exit.getYaw();
-            f = exit.getPitch();
-            this.worldChangeInvuln = true; // CraftBukkit - Set teleport invulnerability only if player changing worlds
-            dimensionmanager = worldserver1.getWorldProvider().getDimensionManager();
             // CraftBukkit end
 
-            // CraftBukkit start
-            this.dimension = dimensionmanager;
-
-            this.playerConnection.sendPacket(new PacketPlayOutRespawn(worldserver1.worldProvider.getDimensionManager().getType(), WorldData.c(this.world.getWorldData().getSeed()), this.world.getWorldData().getType(), this.playerInteractManager.getGameMode()));
-            this.playerConnection.sendPacket(new PacketPlayOutServerDifficulty(this.world.getDifficulty(), this.world.getWorldData().isDifficultyLocked()));
-            PlayerList playerlist = this.server.getPlayerList();
-
-            playerlist.d(this);
-            worldserver.removePlayer(this);
-            this.dead = false;
-            // CraftBukkit end
-
-            this.setPositionRotation(d0, d1, d2, f1, f);
+            // this.setPositionRotation(d0, d1, d2, f1, f); // CraftBukkit - PlayerTeleportEvent handles position changes
             worldserver.getMethodProfiler().exit();
             worldserver.getMethodProfiler().enter("placing");
             double d4 = Math.min(-2.9999872E7D, worldserver1.getWorldBorder().c() + 16.0D);
@@ -797,11 +770,16 @@ public class EntityPlayer extends EntityHuman implements ICrafting {
 
             d0 = MathHelper.a(d0, d4, d6);
             d2 = MathHelper.a(d2, d5, d7);
-            this.setPositionRotation(d0, d1, d2, f1, f);
+            // this.setPositionRotation(d0, d1, d2, f1, f); // CraftBukkit - PlayerTeleportEvent handles position changes
+            // CraftBukkit start - PlayerPortalEvent implementation
+            Vec3D exitVelocity = Vec3D.a;
+            BlockPosition exitPosition = new BlockPosition(d0, d1, d2);
             if (dimensionmanager.getType() == DimensionManager.THE_END) { // CraftBukkit - getType()
-                int i = MathHelper.floor(this.locX());
-                int j = MathHelper.floor(this.locY()) - 1;
-                int k = MathHelper.floor(this.locZ());
+                int i = exitPosition.getX();
+                int j = exitPosition.getY() - 1;
+                int k = exitPosition.getZ();
+                if (event.getCanCreatePortal()) {
+                // CraftBukkit end
                 boolean flag = true;
                 boolean flag1 = false;
                 org.bukkit.craftbukkit.util.BlockStateListPopulator blockList = new org.bukkit.craftbukkit.util.BlockStateListPopulator(worldserver1); // CraftBukkit - Use BlockStateListPopulator
@@ -827,19 +805,67 @@ public class EntityPlayer extends EntityHuman implements ICrafting {
                 if (!portalEvent.isCancelled()) {
                     blockList.updateList();
                 }
+                }
+                // handled below for PlayerTeleportEvent
+                // this.setPositionRotation((double) i, (double) j, (double) k, f1, 0.0F);
+                exit.setX(i);
+                exit.setY(j);
+                exit.setZ(k);
+                // this.setMot(Vec3D.a);
+                exitVelocity = Vec3D.a;
+            } else {
+                ShapeDetector.Shape portalShape = worldserver1.getTravelAgent().findAndTeleport(this, exitPosition, f2, event.getSearchRadius(), true);
+                if (portalShape == null && event.getCanCreatePortal()) {
+                    if (worldserver1.getTravelAgent().createPortal(this, exitPosition, event.getCreationRadius())) { // Only check for new portal if creation succeeded
+                        portalShape = worldserver1.getTravelAgent().findAndTeleport(this, exitPosition, f2, event.getSearchRadius(), true);
+                    }
+                }
+                // Check if portal was found
+                if (portalShape == null) {
+                    return null;
+                }
+                // Teleport handling - logic from PortalTravelAgent#findAndTeleport
+                exitVelocity = portalShape.velocity;
+                exit.setX(portalShape.position.getX());
+                exit.setY(portalShape.position.getY());
+                exit.setZ(portalShape.position.getZ());
+                exit.setYaw(f2 + (float) portalShape.yaw);
                 // CraftBukkit end
-                this.setPositionRotation((double) i, (double) j, (double) k, f1, 0.0F);
-                this.setMot(Vec3D.a);
-            } else if (!worldserver1.getTravelAgent().a(this, f2)) {
-                worldserver1.getTravelAgent().a((Entity) this);
-                worldserver1.getTravelAgent().a(this, f2);
             }
 
             worldserver.getMethodProfiler().exit();
+            // CraftBukkit start - PlayerTeleportEvent
+            PlayerTeleportEvent tpEvent = new PlayerTeleportEvent(this.getBukkitEntity(), enter, exit, cause);
+            Bukkit.getServer().getPluginManager().callEvent(tpEvent);
+            if (tpEvent.isCancelled() || tpEvent.getTo() == null) {
+                return null;
+            }
+
+            exit = tpEvent.getTo();
+            if (exit == null) {
+                return null;
+            }
+            worldserver1 = ((CraftWorld) exit.getWorld()).getHandle();
+            this.worldChangeInvuln = true; // CraftBukkit - Set teleport invulnerability only if player changing worlds
+            dimensionmanager = worldserver1.getWorldProvider().getDimensionManager();
+
+            this.dimension = dimensionmanager;
+
+            this.playerConnection.sendPacket(new PacketPlayOutRespawn(worldserver1.worldProvider.getDimensionManager().getType(), WorldData.c(this.world.getWorldData().getSeed()), this.world.getWorldData().getType(), this.playerInteractManager.getGameMode()));
+            this.playerConnection.sendPacket(new PacketPlayOutServerDifficulty(this.world.getDifficulty(), this.world.getWorldData().isDifficultyLocked()));
+            PlayerList playerlist = this.server.getPlayerList();
+
+            playerlist.d(this);
+            worldserver.removePlayer(this);
+            this.dead = false;
+
+            this.setMot(exitVelocity);
+            // CraftBukkit end
             this.spawnIn(worldserver1);
             worldserver1.addPlayerPortal(this);
             this.triggerDimensionAdvancements(worldserver);
-            this.playerConnection.a(this.locX(), this.locY(), this.locZ(), f1, f);
+            this.playerConnection.teleport(exit); // CraftBukkit - use internal teleport without event
+            this.playerConnection.syncPosition(); // CraftBukkit - sync position after changing it (from PortalTravelAgent#findAndteleport)
             this.playerInteractManager.a(worldserver1);
             this.playerConnection.sendPacket(new PacketPlayOutAbilities(this.abilities));
             playerlist.a(this, worldserver1);
@@ -1330,7 +1356,7 @@ public class EntityPlayer extends EntityHuman implements ICrafting {
     }
 
     @Override
-    public void b(double d0, double d1, double d2) {
+    public void b(double d0, double d1, double d2) { // PAIL: rename to teleportAndSync
         this.playerConnection.a(d0, d1, d2, this.yaw, this.pitch);
         this.playerConnection.syncPosition();
     }

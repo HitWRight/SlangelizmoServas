@@ -18,6 +18,7 @@ public class WorldCreator {
     private WorldType type = WorldType.NORMAL;
     private boolean generateStructures = true;
     private String generatorSettings = "";
+    private boolean hardcore = false;
 
     /**
      * Creates an empty WorldCreationOptions for the given world name
@@ -50,6 +51,7 @@ public class WorldCreator {
         generator = world.getGenerator();
         type = world.getWorldType();
         generateStructures = world.canGenerateStructures();
+        hardcore = world.isHardcore();
 
         return this;
     }
@@ -72,6 +74,7 @@ public class WorldCreator {
         type = creator.type();
         generateStructures = creator.generateStructures();
         generatorSettings = creator.generatorSettings();
+        hardcore = creator.hardcore();
 
         return this;
     }
@@ -226,9 +229,15 @@ public class WorldCreator {
     }
 
     /**
-     * Sets the generator settings of the world that will be created or loaded
+     * Sets the generator settings of the world that will be created or loaded.
+     * <p>
+     * Currently only {@link WorldType#FLAT} uses these settings, and expects
+     * them to be in JSON format with a valid biome defined. An example valid
+     * configuration is as follows:
+     * <code>{"layers": [{"block": "stone", "height": 1}, {"block": "grass", "height": 1}], "biome":"plains"}</code>
      *
-     * @param generatorSettings The settings that should be used by the generator
+     * @param generatorSettings The settings that should be used by the
+     * generator
      * @return This object, for chaining
      */
     @NotNull
@@ -239,9 +248,10 @@ public class WorldCreator {
     }
 
     /**
-     * Gets the generator settings of the world that will be created or loaded
+     * Gets the generator settings of the world that will be created or loaded.
      *
      * @return The settings that should be used by the generator
+     * @see #generatorSettings(java.lang.String)
      */
     @NotNull
     public String generatorSettings() {
@@ -269,6 +279,32 @@ public class WorldCreator {
      */
     public boolean generateStructures() {
         return generateStructures;
+    }
+
+    /**
+     * Sets whether the world will be hardcore or not.
+     *
+     * In a hardcore world the difficulty will be locked to hard.
+     *
+     * @param hardcore Whether the world will be hardcore
+     * @return This object, for chaining
+     */
+    @NotNull
+    public WorldCreator hardcore(boolean hardcore) {
+        this.hardcore = hardcore;
+
+        return this;
+    }
+
+    /**
+     * Gets whether the world will be hardcore or not.
+     *
+     * In a hardcore world the difficulty will be locked to hard.
+     *
+     * @return hardcore status
+     */
+    public boolean hardcore() {
+        return hardcore;
     }
 
     /**

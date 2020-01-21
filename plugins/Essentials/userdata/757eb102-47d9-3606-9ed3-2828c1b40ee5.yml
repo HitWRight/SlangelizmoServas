@@ -1,10 +1,10 @@
 lastAccountName: Tausva
 timestamps:
-  login: 1579168235593
+  login: 1579464772858
   lastteleport: 1579005364988
   kits:
     tools: 1577106172312
-  logout: 1579168247854
+  logout: 1579464873744
 ipAddress: 85.255.48.127
 lastlocation:
   world: world
@@ -17,8 +17,8 @@ geolocation: Republic of Lithuania
 money: '131770.0'
 logoutlocation:
   world: world
-  x: 4861.623007693054
-  y: 68.0
-  z: -1248.432478206476
-  yaw: -122.97607
-  pitch: 7.3506374
+  x: 315.0423979334509
+  y: 72.0
+  z: -573.6752454353824
+  yaw: -110.5532
+  pitch: 15.149975
