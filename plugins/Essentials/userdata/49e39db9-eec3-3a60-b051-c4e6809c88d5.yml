@@ -1,0 +1,20 @@
+lastAccountName: Mel
+timestamps:
+  login: 1580554554100
+  logout: 1580555405773
+ipAddress: 85.255.48.127
+geolocation: Republic of Lithuania
+lastlocation:
+  world: world
+  x: 26.5
+  y: 64.0
+  z: -84.5
+  yaw: 2.3189833
+  pitch: 0.0
+logoutlocation:
+  world: world
+  x: -10.39994565359342
+  y: 60.20987193707738
+  z: -47.92349999110363
+  yaw: -113.24936
+  pitch: 19.499939

@@ -1,0 +1,20 @@
+geolocation: United Kingdom
+lastAccountName: HellHounddogy
+timestamps:
+  login: 1580234461441
+  logout: 1580241090844
+ipAddress: 80.1.152.129
+lastlocation:
+  world: world
+  x: 26.5
+  y: 64.0
+  z: -84.5
+  yaw: 3.983447
+  pitch: 0.0
+logoutlocation:
+  world: world
+  x: 294.37493033998794
+  y: 95.875
+  z: -548.9092827731381
+  yaw: -175.2926
+  pitch: 22.79985

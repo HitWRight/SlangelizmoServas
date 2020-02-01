@@ -185,6 +185,12 @@
     },
     "done": true
   },
+  "minecraft:end/elytra": {
+    "criteria": {
+      "elytra": "2020-01-23 22:07:37 +0200"
+    },
+    "done": true
+  },
   "minecraft:recipes/building_blocks/chiseled_stone_bricks_stone_from_stonecutting": {
     "criteria": {
       "has_stone": "2019-12-15 23:35:04 +0200"
@@ -224,6 +230,12 @@
   "minecraft:recipes/building_blocks/smooth_red_sandstone_stairs_from_smooth_red_sandstone_stonecutting": {
     "criteria": {
       "has_smooth_red_sandstone": "2019-12-23 22:36:43 +0200"
+    },
+    "done": true
+  },
+  "minecraft:recipes/misc/popped_chorus_fruit": {
+    "criteria": {
+      "has_chorus_fruit": "2020-01-23 23:01:33 +0200"
     },
     "done": true
   },
@@ -356,6 +368,12 @@
   "minecraft:recipes/building_blocks/stripped_birch_wood": {
     "criteria": {
       "has_log": "2019-12-29 00:04:16 +0200"
+    },
+    "done": true
+  },
+  "minecraft:recipes/misc/creeper_banner_pattern": {
+    "criteria": {
+      "has_creeper_head": "2020-01-23 23:37:17 +0200"
     },
     "done": true
   },
@@ -801,6 +819,12 @@
     },
     "done": true
   },
+  "minecraft:story/follow_ender_eye": {
+    "criteria": {
+      "in_stronghold": "2020-01-23 21:41:08 +0200"
+    },
+    "done": true
+  },
   "minecraft:recipes/building_blocks/light_blue_stained_glass": {
     "criteria": {
       "has_glass": "2019-12-15 13:31:47 +0200"
@@ -858,6 +882,12 @@
   "minecraft:recipes/building_blocks/granite_stairs": {
     "criteria": {
       "has_granite": "2019-12-15 19:51:30 +0200"
+    },
+    "done": true
+  },
+  "minecraft:end/root": {
+    "criteria": {
+      "entered_end": "2020-01-23 21:42:55 +0200"
     },
     "done": true
   },
@@ -1269,6 +1299,7 @@
       "minecraft:birch_forest_hills": "2019-12-24 12:41:00 +0200",
       "minecraft:wooded_mountains": "2019-12-15 19:08:53 +0200",
       "minecraft:wooded_hills": "2019-12-15 23:10:26 +0200",
+      "minecraft:stone_shore": "2020-01-23 23:31:42 +0200",
       "minecraft:swamp": "2019-12-14 15:05:32 +0200",
       "minecraft:plains": "2019-12-14 15:05:02 +0200"
     },
@@ -1751,6 +1782,7 @@
   "minecraft:husbandry/balanced_diet": {
     "criteria": {
       "cooked_porkchop": "2019-12-15 19:55:52 +0200",
+      "chorus_fruit": "2020-01-23 23:01:36 +0200",
       "apple": "2019-12-15 18:44:59 +0200",
       "rotten_flesh": "2020-01-15 23:18:07 +0200"
     },
@@ -2107,6 +2139,12 @@
   "minecraft:recipes/tools/iron_shovel": {
     "criteria": {
       "has_iron_ingot": "2019-12-15 19:58:14 +0200"
+    },
+    "done": true
+  },
+  "minecraft:recipes/building_blocks/dark_oak_wood": {
+    "criteria": {
+      "has_log": "2020-01-23 23:11:36 +0200"
     },
     "done": true
   },
@@ -2674,6 +2712,12 @@
     },
     "done": true
   },
+  "minecraft:end/find_end_city": {
+    "criteria": {
+      "in_city": "2020-01-23 21:44:49 +0200"
+    },
+    "done": true
+  },
   "minecraft:recipes/combat/leather_chestplate": {
     "criteria": {
       "has_leather": "2019-12-15 11:01:31 +0200"
@@ -2683,6 +2727,12 @@
   "minecraft:recipes/building_blocks/polished_granite_slab": {
     "criteria": {
       "has_polished_granite": "2019-12-15 23:57:26 +0200"
+    },
+    "done": true
+  },
+  "minecraft:end/enter_end_gateway": {
+    "criteria": {
+      "entered_end_gateway": "2020-01-23 22:03:26 +0200"
     },
     "done": true
   },
@@ -2842,6 +2892,12 @@
     },
     "done": true
   },
+  "minecraft:story/enter_the_end": {
+    "criteria": {
+      "entered_end": "2020-01-23 21:42:55 +0200"
+    },
+    "done": true
+  },
   "minecraft:recipes/building_blocks/polished_granite": {
     "criteria": {
       "has_stone": "2019-12-15 19:51:30 +0200"
@@ -2929,6 +2985,12 @@
   "minecraft:recipes/building_blocks/smooth_red_sandstone_slab": {
     "criteria": {
       "has_smooth_red_sandstone": "2019-12-23 22:36:43 +0200"
+    },
+    "done": true
+  },
+  "minecraft:end/respawn_dragon": {
+    "criteria": {
+      "summoned_dragon": "2020-01-23 21:54:25 +0200"
     },
     "done": true
   },
