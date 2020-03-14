@@ -1,9 +1,9 @@
 lastAccountName: Raguotoji Ragana
 timestamps:
-  login: 1580572253879
+  login: 1580650369917
   kits:
     tools: 1579125508208
-  logout: 1580574684474
+  logout: 1580652232382
   lastteleport: 1579817133097
 ipAddress: 88.119.4.105
 lastlocation:
@@ -17,8 +17,8 @@ geolocation: Republic of Lithuania
 money: '1600.0'
 logoutlocation:
   world: world
-  x: 156.30248449737465
-  y: 77.0
-  z: -2.81828623455231
-  yaw: -268.0501
-  pitch: 18.450024
+  x: 160.270948674176
+  y: 71.0
+  z: -6.8722536739442335
+  yaw: 72.899994
+  pitch: 0.74999154
